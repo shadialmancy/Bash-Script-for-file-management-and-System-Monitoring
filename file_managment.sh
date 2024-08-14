@@ -712,7 +712,7 @@ function permission_ownership() {
         fi
 
         if [[ -n "$user_ownership" || -n "$group_ownership" ]]; then
-            if chown "$user_ownership:$group_ownership" "$target" 2>/dev/null; then
+            if sudo chown "$user_ownership:$group_ownership" "$target" 2>/dev/null; then
                 yad --info --title="Success" --text="Permission ownership has been successfully changed." --width=300 --height=150
             else
                 yad --error --title="Error" --text="Failed to change permission ownership. Check your input and try again." --width=300 --height=150
